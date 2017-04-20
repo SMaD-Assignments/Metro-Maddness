@@ -4,14 +4,19 @@ import java.awt.geom.Point2D;
 import java.util.ArrayList;
 import java.util.Random;
 
+import org.apache.logging.log4j.LogManager;
+import org.apache.logging.log4j.Logger;
+
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
-import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
+import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class Station {
+	
+	protected static Logger logger = LogManager.getLogger();
 	
 	public static final int PLATFORMS=2;
 	
@@ -23,14 +28,24 @@ public class Station {
 	public ArrayList<Line> lines;
 	public ArrayList<Train> trains;
 	public static final float DEPARTURE_TIME = 2;
-	public PassengerRouter router;
+	public ArrayList<Passenger> waiting;
+	public float maxVolume;
+	protected PassengerGenerator g;
+	protected boolean isActive;
 
-	public Station(float x, float y, PassengerRouter router, String name){
+	public Station(float x, float y, String name, float maxPas, boolean active){
 		this.name = name;
-		this.router = router;
 		this.position = new Point2D.Float(x,y);
 		this.lines = new ArrayList<Line>();
 		this.trains = new ArrayList<Train>();
+		this.waiting = new ArrayList<Passenger>();
+		this.maxVolume = maxPas;
+		g = createGen();
+		isActive = active;
+	}
+	
+	protected PassengerGenerator createGen() {
+		return new PassengerGenerator(this);
 	}
 	
 	public void registerLine(Line l){
@@ -49,8 +64,12 @@ public class Station {
 		// Calculate the percentage
 		float t = this.trains.size()/(float)PLATFORMS;
 		Color c = Color.WHITE.cpy().lerp(Color.DARK_GRAY, t);
+		if(this.waiting.size() > 0){
+		c = Color.RED;
+		}
 		renderer.setColor(c);
-		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);		
+		renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
+			
 	}
 	
 	public void enter(Train t) throws Exception {
@@ -79,19 +98,25 @@ public class Station {
 		return DEPARTURE_TIME;
 	}
 
-	public boolean shouldLeave(Passenger p) {
-		return this.router.shouldLeave(this, p);
-	}
 
 	@Override
 	public String toString() {
 		return "Station [position=" + position + ", name=" + name + ", trains=" + trains.size()
-				+ ", router=" + router + "]";
-	}
-
-	public Passenger generatePassenger(int id, Random random, Station s) {
-		return new Passenger(id, random, this, s);
+				 + "]";
 	}
 	
+	public boolean checkActive() {return isActive;}
+	
+	public Line getRandLine(Random random) {
+		return lines.get(random.nextInt(lines.size()));
+	}
+	
+	public ArrayList<Passenger> getWaiting() { return waiting; }
+	
+	public String getName() { return name; }
+	
+	public float getMaxVolume() { return maxVolume; }
+	
+	public PassengerGenerator getPasGen() { return g; }
 	
 }

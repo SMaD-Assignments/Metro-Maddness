@@ -115,4 +115,6 @@ public class Line {
 		}	
 	}
 	
+	public ArrayList<Station> getStations() { return stations; }
+	
 }

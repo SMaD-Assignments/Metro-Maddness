@@ -78,7 +78,7 @@
 			<name>Southern Cross</name>
 			<x_loc>2240</x_loc>
 			<y_loc>4800</y_loc>
-			<router>simple</router>
+			<router>cargo</router>
 			<max_passengers> 100 </max_passengers>
 		</station>	
 		<station>
@@ -222,7 +222,7 @@
 			<name>North Melbourne</name>
 			<x_loc>2240</x_loc>
 			<y_loc>5560</y_loc>
-			<router>simple</router>
+			<router>cargo</router>
 			<max_passengers> 100 </max_passengers>
 		</station>
 		<station>
@@ -230,7 +230,7 @@
 			<name>Macaulay</name>
 			<x_loc>2440</x_loc>
 			<y_loc>5700</y_loc>
-			<router>simple</router>
+			<router>cargo</router>
 			<max_passengers> 100 </max_passengers>
 		</station>	
 		<station>
@@ -238,14 +238,6 @@
 			<name>Upfield</name>
 			<x_loc>2440</x_loc>
 			<y_loc>7400</y_loc>
-			<router>simple</router>
-			<max_passengers> 100 </max_passengers>
-		</station>	
-		<station>
-			<type>Active</type>
-			<name>North Melbourne</name>
-			<x_loc>2240</x_loc>
-			<y_loc>5560</y_loc>
 			<router>simple</router>
 			<max_passengers> 100 </max_passengers>
 		</station>
@@ -270,7 +262,7 @@
 			<name>Footscray</name>
 			<x_loc>1850</x_loc>
 			<y_loc>5560</y_loc>
-			<router>simple</router>
+			<router>cargo</router>
 			<max_passengers> 100 </max_passengers>
 		</station>
 		<station>
@@ -278,7 +270,7 @@
 			<name>Williamstown</name>
 			<x_loc>1840</x_loc>
 			<y_loc>4200</y_loc>
-			<router>simple</router>
+			<router>cargo</router>
 			<max_passengers> 100 </max_passengers>
 		</station>
 		<station>

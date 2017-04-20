@@ -4,6 +4,8 @@ import java.util.ArrayList;
 
 import com.badlogic.gdx.Gdx;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
+import com.unimelb.swen30006.metromadness.reader.MapReader;
+import com.unimelb.swen30006.metromadness.reader.MapReaderAdapter;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
@@ -16,8 +18,7 @@ public class Simulation {
 	
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
-		MapReader m = new MapReader(fileName);
-		m.process();
+		MapReaderAdapter m = new MapReader(fileName);
 		
 		// Create a list of lines
 		this.lines = new ArrayList<Line>();
