@@ -1,9 +1,11 @@
 package com.unimelb.swen30006.metromadness.passengers;
 
-import java.util.ArrayList;
 import java.util.Random;
 
+import com.unimelb.swen30006.metromadness.routers.PassengerRouter;
+import com.unimelb.swen30006.metromadness.routers.RouterAdapter;
 import com.unimelb.swen30006.metromadness.stations.Station;
+import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class Passenger {
 
@@ -12,7 +14,8 @@ public class Passenger {
 	public Station destination;
 	public float travelTime;
 	public boolean reachedDestination;
-	public Cargo cargo;
+	public int cargoWeight;
+	private RouterAdapter router;
 	
 	public Passenger(int id, Random random, Station start, Station end){
 		this.id = id;
@@ -20,7 +23,8 @@ public class Passenger {
 		this.destination = end;
 		this.reachedDestination = false;
 		this.travelTime = 0;
-		this.cargo = generateCargo(random);
+		this.cargoWeight = random.nextInt(51);
+		this.router = new PassengerRouter();
 	}
 	
 	public void update(float time){
@@ -28,29 +32,15 @@ public class Passenger {
 			this.travelTime += time;
 		}
 	}
-	public Cargo getCargo(){
-		return cargo;
-	}
-	public Cargo generateCargo(Random random){
-		return new Cargo(random.nextInt(51));
+	public int getWeight() {
+		return cargoWeight;
 	}
 	
-	public class Cargo{
-		private int weight;
-		
-		public Cargo(int weight){
-			this.setWeight(weight);
-		}
-
-		public int getWeight() {
-			return weight;
-		}
-
-		public void setWeight(int weight) {
-			this.weight = weight;
-		}
+	public boolean shouldDisembark(Station current) {
+		return router.shouldDisembark(current, this);
 	}
-
 	
-	
+	public boolean shouldEmbark(Train train) {
+		return router.shouldEmbark(train, this);
+	}
 }

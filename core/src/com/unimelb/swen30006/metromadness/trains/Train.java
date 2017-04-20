@@ -2,7 +2,6 @@ package com.unimelb.swen30006.metromadness.trains;
 
 import java.awt.geom.Point2D;
 import java.util.ArrayList;
-import java.util.Iterator;
 
 import org.apache.logging.log4j.LogManager;
 import org.apache.logging.log4j.Logger;
@@ -10,6 +9,7 @@ import org.apache.logging.log4j.Logger;
 import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.passengers.Passenger;
+import com.unimelb.swen30006.metromadness.passengers.PassengerHandler;
 import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
@@ -41,6 +41,7 @@ public class Train {
 	// Passenger Information
 	public ArrayList<Passenger> passengers;
 	public float departureTimer;
+	private int maxPassengers;
 	
 	// Station and track and position information
 	public Station station; 
@@ -59,13 +60,14 @@ public class Train {
 	public State previousState = null;
 
 	
-	public Train(Line trainLine, Station start, boolean forward, String name){
+	public Train(Line trainLine, Station start, boolean forward, String name, int size){
 		this.trainLine = trainLine;
 		this.station = start;
 		this.state = State.FROM_DEPOT;
 		this.forward = forward;
 		this.passengers = new ArrayList<Passenger>();
 		this.name = name;
+		this.maxPassengers = size;
 	}
 
 	public void update(float delta){
@@ -107,7 +109,7 @@ public class Train {
 			// When in station we want to disembark passengers 
 			// and wait 10 seconds for incoming passengers
 			if(!this.disembarked){
-				this.disembark();
+				PassengerHandler.handleStation(station, this);
 				this.departureTimer = this.station.getDepartureTime();
 				this.disembarked = true;
 			} else {
@@ -198,22 +200,10 @@ public class Train {
 	}
 
 	public void embark(Passenger p) throws Exception {
-		throw new Exception();
-	}
-
-
-	public ArrayList<Passenger> disembark(){
-		ArrayList<Passenger> disembarking = new ArrayList<Passenger>();
-		Iterator<Passenger> iterator = this.passengers.iterator();
-		while(iterator.hasNext()){
-			Passenger p = iterator.next();
-			if(this.station.shouldLeave(p)){
-				logger.info("Passenger "+p.id+" is disembarking at "+this.station.name);
-				disembarking.add(p);
-				iterator.remove();
-			}
+		if(this.passengers.size() > maxPassengers){
+			throw new Exception();
 		}
-		return disembarking;
+		this.passengers.add(p);
 	}
 
 	@Override
@@ -232,10 +222,27 @@ public class Train {
 
 	public void render(ShapeRenderer renderer){
 		if(!this.inStation()){
+			float percentage = 0f;
 			Color col = this.forward ? FORWARD_COLOUR : BACKWARD_COLOUR;
-			renderer.setColor(col);
-			renderer.circle(this.pos.x, this.pos.y, TRAIN_WIDTH);
+			if (maxPassengers == 0) {
+				renderer.setColor(col);
+			} else if (maxPassengers < 50) {
+				percentage = this.passengers.size()/10f;
+				renderer.setColor(col.cpy().lerp(Color.MAROON, percentage));
+			} else {
+				percentage = this.passengers.size()/20f;
+				renderer.setColor(col.cpy().lerp(Color.LIGHT_GRAY, percentage));
+			}
+			renderer.circle(this.pos.x, this.pos.y, TRAIN_WIDTH*(1+percentage));
 		}
 	}
+	
+	public ArrayList<Station> getStops() { return trainLine.getStations(); }
+	
+	public boolean isFull() {
+		return (maxPassengers <= passengers.size());
+	}
+	
+	public ArrayList<Passenger> getPassengers() { return passengers; }
 	
 }
