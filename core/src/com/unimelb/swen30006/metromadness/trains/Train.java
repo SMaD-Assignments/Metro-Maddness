@@ -24,40 +24,40 @@ public class Train {
 	}
 
 	// Constants
-	private static final int MAX_TRIPS=4;
-	private static final Color FORWARD_COLOUR = Color.ORANGE;
-	private static final Color BACKWARD_COLOUR = Color.VIOLET;
-	private static final float TRAIN_WIDTH=4;
-	private static final float TRAIN_LENGTH = 6;
-	private static final float TRAIN_SPEED=50f;
+	protected static final int MAX_TRIPS=4;
+	protected static final Color FORWARD_COLOUR = Color.ORANGE;
+	protected static final Color BACKWARD_COLOUR = Color.VIOLET;
+	protected static final float TRAIN_WIDTH=4;
+	protected static final float TRAIN_LENGTH = 6;
+	protected static final float TRAIN_SPEED=50f;
 	
 	// The train's name
 	
-	private String name;
+	protected String name;
 
 	// The line that this is traveling on
-	private Line trainLine;
+	protected Line trainLine;
 
 	// Passenger Information
 	protected ArrayList<Passenger> passengers;
-	private float departureTimer;
+	protected float departureTimer;
 	protected int maxPassengers;
 	
 	// Station and track and position information
 	protected Station station; 
-	private Track track;
-	private Point2D.Float pos;
+	protected Track track;
+	protected Point2D.Float pos;
 
 	// Direction and direction
-	private boolean forward;
-	private State state;
+	protected boolean forward;
+	protected State state;
 
 	// State variables
-	private int numTrips;
-	private boolean disembarked;
+	protected int numTrips;
+	protected boolean disembarked;
 	
 	
-	private State previousState = null;
+	protected State previousState = null;
 
 	
 	public Train(Line trainLine, Station start, boolean forward, String name, int size){
@@ -264,71 +264,10 @@ public class Train {
 		this.state = State.READY_DEPART;
 	}
 	
-	
-	public static final int getMaxTrips(){
-		return MAX_TRIPS;
-	}
-	
-	public static final Color getForwardColour(){
-		return FORWARD_COLOUR;
-	}
-	
-	public static final Color getBackwardColour(){
-		return BACKWARD_COLOUR;
-	}
-	
-	public static final float getTrainWidth(){
-		return TRAIN_WIDTH;
-	}
-	
-	public static final float getTrainLength(){
-		return TRAIN_LENGTH;
-	}
-	
-	public static final float getTrainSpeed(){
-		return TRAIN_SPEED;
-	}
-	
-	public String getName(){
-		return name;
-	}
-	
-	public Line getLine(){
-		return trainLine;
-	}
-	
-	public float getDepartureTimer(){
-		return departureTimer;
-	}
-	public Station getStation(){
-		return station;
-	}
-	
-	public Track getTrack(){
-		return track;
-	}
-	
-	public Point2D.Float getPos(){
-		return pos;
-	}
-	
+
+
 	public boolean getForward(){
 		return forward;
 	}
-	
-	public State getState(){
-		return state;
-	}
-	
-	public int numTrips(){
-		return numTrips;
-	}
-	
-	public boolean getDisembarked(){
-		return disembarked;
-	}
-	
-	public State previousState(){
-		return previousState;
-	}
+
 }

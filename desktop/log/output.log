@@ -4122,3 +4122,47 @@
 2017-04-23 14:23:09 INFO  Train - Vlad the Impalator enroute to Berlin Station!
 2017-04-23 14:23:09 INFO  Train - Generic European Train is ready to depart for London Station!
 2017-04-23 14:23:09 INFO  Train - Generic European Train enroute to Amsterdam Station!
+2017-04-23 15:16:26 INFO  Train - Generic European Train is travelling from the depot: Paris Station...
+2017-04-23 15:16:26 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 15:16:26 INFO  PassengerHandler - Passenger 1 carrying 0 kg cargo embarking at Paris heading to London
+2017-04-23 15:16:26 INFO  PassengerHandler - Passenger 3 carrying 0 kg cargo embarking at Paris heading to Berlin
+2017-04-23 15:16:26 INFO  PassengerHandler - Passenger 4 carrying 0 kg cargo embarking at Paris heading to Amsterdam
+2017-04-23 15:16:26 INFO  Train - Vlad the Impalator is travelling from the depot: Bucharest Station...
+2017-04-23 15:16:26 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 15:16:26 INFO  Train - Thomas the Tank Engine is travelling from the depot: Glasgow Station...
+2017-04-23 15:16:26 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 15:16:26 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 15:16:26 INFO  Train - Vlad the Impalator is ready to depart for Bucharest Station!
+2017-04-23 15:16:26 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 15:16:26 INFO  Train - Vlad the Impalator enroute to Budapest Station!
+2017-04-23 15:16:26 INFO  Train - Thomas the Tank Engine enroute to Manchester Station!
+2017-04-23 15:16:27 INFO  Train - Vlad the Impalator is awaiting entry Budapest Station..!
+2017-04-23 15:16:27 INFO  Train - Thomas the Tank Engine is awaiting entry Manchester Station..!
+2017-04-23 15:16:27 INFO  Train - Vlad the Impalator is in Budapest Station.
+2017-04-23 15:16:27 INFO  Train - Thomas the Tank Engine is in Manchester Station.
+2017-04-23 15:16:27 INFO  Train - Vlad the Impalator is ready to depart for Budapest Station!
+2017-04-23 15:16:27 INFO  Train - Thomas the Tank Engine is ready to depart for Manchester Station!
+2017-04-23 15:16:27 INFO  Train - Vlad the Impalator enroute to Vienna Station!
+2017-04-23 15:16:27 INFO  Train - Thomas the Tank Engine enroute to London Station!
+2017-04-23 15:16:28 INFO  Train - Generic European Train is ready to depart for Paris Station!
+2017-04-23 15:16:28 INFO  Train - Generic European Train enroute to London Station!
+2017-04-23 15:16:28 INFO  Train - Thomas the Tank Engine is awaiting entry London Station..!
+2017-04-23 15:16:28 INFO  Train - Thomas the Tank Engine is in London Station.
+2017-04-23 15:16:28 INFO  Train - Thomas the Tank Engine is ready to depart for London Station!
+2017-04-23 15:16:28 INFO  Train - Thomas the Tank Engine enroute to Manchester Station!
+2017-04-23 15:16:28 INFO  Train - Vlad the Impalator is awaiting entry Vienna Station..!
+2017-04-23 15:16:28 INFO  Train - Vlad the Impalator is in Vienna Station.
+2017-04-23 15:16:28 INFO  Train - Vlad the Impalator is ready to depart for Vienna Station!
+2017-04-23 15:16:28 INFO  Train - Vlad the Impalator enroute to Berlin Station!
+2017-04-23 15:16:29 INFO  Train - Generic European Train is awaiting entry London Station..!
+2017-04-23 15:16:29 INFO  Train - Generic European Train is in London Station.
+2017-04-23 15:16:29 INFO  PassengerHandler - Passenger 6 carrying 0 kg cargo embarking at London heading to Paris
+2017-04-23 15:16:29 INFO  PassengerHandler - Passenger 1 is disembarking at London
+2017-04-23 15:16:29 INFO  Train - Thomas the Tank Engine is awaiting entry Manchester Station..!
+2017-04-23 15:16:29 INFO  Train - Thomas the Tank Engine is in Manchester Station.
+2017-04-23 15:16:29 INFO  Train - Thomas the Tank Engine is ready to depart for Manchester Station!
+2017-04-23 15:16:29 INFO  Train - Thomas the Tank Engine enroute to Glasgow Station!
+2017-04-23 15:16:29 INFO  Train - Vlad the Impalator is awaiting entry Berlin Station..!
+2017-04-23 15:16:29 INFO  Train - Vlad the Impalator is in Berlin Station.
+2017-04-23 15:16:29 INFO  Train - Vlad the Impalator is ready to depart for Berlin Station!
+2017-04-23 15:16:29 INFO  Train - Vlad the Impalator enroute to Paris Station!

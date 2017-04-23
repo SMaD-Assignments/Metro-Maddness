@@ -18,18 +18,18 @@ public class Station {
 	
 	protected static Logger logger = LogManager.getLogger();
 	
-	private static final int PLATFORMS=2;
+	protected static final int PLATFORMS=2;
 	
-	private Point2D.Float position;
-	private static final float RADIUS=6;
-	private static final int NUM_CIRCLE_STATMENTS=100;
-	private static final int MAX_LINES=3;
-	private String name;
-	private ArrayList<Line> lines;
-	private ArrayList<Train> trains;
-	private static final float DEPARTURE_TIME = 2;
-	private ArrayList<Passenger> waiting;
-	private float maxVolume;
+	protected Point2D.Float position;
+	protected static final float RADIUS=6;
+	protected static final int NUM_CIRCLE_STATMENTS=100;
+	protected static final int MAX_LINES=3;
+	protected String name;
+	protected ArrayList<Line> lines;
+	protected ArrayList<Train> trains;
+	protected static final float DEPARTURE_TIME = 2;
+	protected ArrayList<Passenger> waiting;
+	protected float maxVolume;
 	protected PassengerGenerator g;
 	protected boolean isActive;
 
@@ -122,27 +122,6 @@ public class Station {
 	public Point2D.Float getPosition(){
 		return position;
 	}
-	
-	public static final float getRadius(){
-		return RADIUS;
-	}
-	
-	public static final int getNumCircles(){
-		return NUM_CIRCLE_STATMENTS;
-	}
-	
-	public static final int getMaxLines(){
-		return MAX_LINES;
-	}
-	
-	public ArrayList<Line> getLines(){
-		return lines;
-	}
-	
-	public ArrayList<Train> getTrains(){
-		return trains;
-	}
-	
-	
+
 	
 }
