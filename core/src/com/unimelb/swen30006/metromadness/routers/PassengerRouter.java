@@ -12,7 +12,7 @@ public class PassengerRouter implements RouterAdapter {
 		
 		// Check if the the train will take the passenger to their station
 		for( Station s : train.getStops()) {
-			if (s.equals(p.destination)) {
+			if (s.equals(p.getDestination())) {
 				isOnLine = true;
 				break;
 			}
@@ -24,7 +24,7 @@ public class PassengerRouter implements RouterAdapter {
 
 	@Override
 	public boolean shouldDisembark(Station current, Passenger p) {
-		return current.equals(p.destination);
+		return current.equals(p.getDestination());
 	}
 
 }

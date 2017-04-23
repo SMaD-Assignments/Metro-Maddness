@@ -7,12 +7,13 @@ import com.unimelb.swen30006.metromadness.trains.Train;
 
 public class Passenger {
 
-	final public int id;
-	public Station beginning;
-	public Station destination;
-	public float travelTime;
-	public boolean reachedDestination;
+	final private int id;
+	private Station beginning;
+	private Station destination;
+	private float travelTime;
+	private boolean reachedDestination;
 	private RouterAdapter router;
+	
 	
 	public Passenger(int id, Station start, Station end){
 		this.id = id;
@@ -39,7 +40,24 @@ public class Passenger {
 		return router.shouldEmbark(train, this);
 	}
 
-	public int getWeight() {
-		return 0;
+//	public int getWeight() {
+//		return 0;
+//	}
+	
+	public final int getId(){
+		return id;
 	}
+	
+	public Station getDestination(){
+		return destination;
+	}
+	
+	public Station getBeginning(){
+		return beginning;
+	}
+	
+	public float getTravelTime(){
+		return travelTime;
+	}
+		
 }

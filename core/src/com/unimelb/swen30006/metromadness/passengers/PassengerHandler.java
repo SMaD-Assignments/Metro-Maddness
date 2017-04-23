@@ -24,7 +24,7 @@ public class PassengerHandler {
 				Passenger p = pIter.next();
 				try {
 					if(p.shouldEmbark(t)) {
-						logger.info("Passenger "+p.id+" carrying "+p.getWeight() +" kg cargo embarking at " +s.getName() +" heading to "+p.destination.name);
+						logger.info("Passenger "+p.getId()+" carrying "+((CargoPassenger) p).getWeight() +" kg cargo embarking at " +s.getName() +" heading to "+p.getDestination().getName());
 						t.embark(p);
 						pIter.remove();
 					}
@@ -45,7 +45,7 @@ public class PassengerHandler {
 			for(Passenger p: ps){
 				try {
 					if(p.shouldEmbark(t)) {
-						logger.info("Passenger "+p.id+" carrying "+p.getWeight() +" kg cargo embarking at " +s.getName() +" heading to "+p.destination.name);
+						logger.info("Passenger "+p.getId()+" carrying "+((CargoPassenger) p).getWeight() +" kg cargo embarking at " +s.getName() +" heading to "+p.getDestination().getName());
 						t.embark(p);
 					} else {
 						s.getWaiting().add(p);
@@ -61,7 +61,7 @@ public class PassengerHandler {
 		int currentDep = arrived.size();
 		for (Passenger p : t.getPassengers()){
 			if (p.shouldDisembark(s)) {
-				logger.info("Passenger "+p.id+" is disembarking at "+s.getName());
+				logger.info("Passenger "+p.getId()+" is disembarking at "+s.getName());
 				arrived.add(p);
 			}
 		}

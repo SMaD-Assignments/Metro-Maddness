@@ -19,7 +19,7 @@ public class CargoGenerator extends PassengerGenerator {
 		ArrayList<Integer> possible;
 		Line l;
 		do {
-		l = s.getRandLine(random);
+		l = getStation().getRandLine(random);
 		possible = new ArrayList<Integer>();
 		
 		for (Station station : l.getStations()) {
@@ -29,11 +29,11 @@ public class CargoGenerator extends PassengerGenerator {
 		}
 		} while (possible.size() < 2);
 		
-		int current_station = l.getStations().indexOf(this.s);
+		int current_station = l.getStations().indexOf(this.getStation());
 		boolean forward = random.nextBoolean();
 
 		// If we are the end of the line then set our direction forward or backward
-		System.out.println("index: " + possible.indexOf(current_station) + "   size: " + possible.size() + "   Station: " + s.name);
+		System.out.println("index: " + possible.indexOf(current_station) + "   size: " + possible.size() + "   Station: " + getStation().getName());
 		if(possible.indexOf(current_station) == 0){
 			forward = true;
 		} else if (possible.indexOf(current_station) == possible.size()-1){
@@ -50,7 +50,7 @@ public class CargoGenerator extends PassengerGenerator {
 		}
 		Station s = l.getStations().get(possible.get(index));
 		
-		return new CargoPassenger(idGen++, random, this.s, s);
+		return new CargoPassenger(idGen++, random, this.getStation(), s);
 	}
 
 }

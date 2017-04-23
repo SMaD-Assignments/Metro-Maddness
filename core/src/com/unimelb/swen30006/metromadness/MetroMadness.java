@@ -25,8 +25,8 @@ public class MetroMadness extends ApplicationAdapter {
     static final int WORLD_HEIGHT = 1200;
 
     // Viewport state
-    int VIEWPORT_WIDTH=200;
-	float viewport_width;
+    private int VIEWPORT_WIDTH=200;
+	private float viewport_width;
 
 	// Data for simluation, rendering and camera.
 	Simulation sim;
@@ -61,13 +61,13 @@ public class MetroMadness extends ApplicationAdapter {
 		shapeRenderer = new ShapeRenderer();
 		
 		// Create our font
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Gotham-Book.ttf"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Gotham-Book.ttf"));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 12;
 		smaller = generator.generateFont(parameter); // font size 12 pixels
 		generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
-		FreeTypeFontGenerator headlineGen = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Gotham-Bold.ttf"));
+		FreeTypeFontGenerator headlineGen = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Gotham-Bold.ttf"));
 		FreeTypeFontParameter headlineParam = new FreeTypeFontParameter();
 		headlineParam.size = 40;
 		header = headlineGen.generateFont(headlineParam); // font size 12 pixels

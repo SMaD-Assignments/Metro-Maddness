@@ -24,40 +24,40 @@ public class Train {
 	}
 
 	// Constants
-	public static final int MAX_TRIPS=4;
-	public static final Color FORWARD_COLOUR = Color.ORANGE;
-	public static final Color BACKWARD_COLOUR = Color.VIOLET;
-	public static final float TRAIN_WIDTH=4;
-	public static final float TRAIN_LENGTH = 6;
-	public static final float TRAIN_SPEED=50f;
+	private static final int MAX_TRIPS=4;
+	private static final Color FORWARD_COLOUR = Color.ORANGE;
+	private static final Color BACKWARD_COLOUR = Color.VIOLET;
+	private static final float TRAIN_WIDTH=4;
+	private static final float TRAIN_LENGTH = 6;
+	private static final float TRAIN_SPEED=50f;
 	
 	// The train's name
 	
-	public String name;
+	private String name;
 
 	// The line that this is traveling on
-	public Line trainLine;
+	private Line trainLine;
 
 	// Passenger Information
-	public ArrayList<Passenger> passengers;
-	public float departureTimer;
+	protected ArrayList<Passenger> passengers;
+	private float departureTimer;
 	protected int maxPassengers;
 	
 	// Station and track and position information
-	public Station station; 
-	public Track track;
-	public Point2D.Float pos;
+	protected Station station; 
+	private Track track;
+	private Point2D.Float pos;
 
 	// Direction and direction
-	public boolean forward;
-	public State state;
+	private boolean forward;
+	private State state;
 
 	// State variables
-	public int numTrips;
-	public boolean disembarked;
+	private int numTrips;
+	private boolean disembarked;
 	
 	
-	public State previousState = null;
+	private State previousState = null;
 
 	
 	public Train(Line trainLine, Station start, boolean forward, String name, int size){
@@ -84,7 +84,7 @@ public class Train {
 		switch(this.state) {
 		case FROM_DEPOT:
 			if(hasChanged){
-				logger.info(this.name+ " is travelling from the depot: "+this.station.name+" Station...");
+				logger.info(this.name+ " is travelling from the depot: "+this.station.getName()+" Station...");
 			}
 			
 			// We have our station initialized we just need to retrieve the next track, enter the
@@ -93,7 +93,7 @@ public class Train {
 				if(this.station.canEnter(this.trainLine)){
 					
 					this.station.enter(this);
-					this.pos = (Point2D.Float) this.station.position.clone();
+					this.pos = (Point2D.Float) this.station.getPosition().clone();
 					this.state = State.IN_STATION;
 					this.disembarked = false;
 				}
@@ -102,7 +102,7 @@ public class Train {
 			}
 		case IN_STATION:
 			if(hasChanged){
-				logger.info(this.name+" is in "+this.station.name+" Station.");
+				logger.info(this.name+" is in "+this.station.getName()+" Station.");
 				// If the train should not stop at the station continue through
 				if (isExpress()) {
 					try {
@@ -139,7 +139,7 @@ public class Train {
 			break;
 		case READY_DEPART:
 			if(hasChanged){
-				logger.info(this.name+ " is ready to depart for "+this.station.name+" Station!");
+				logger.info(this.name+ " is ready to depart for "+this.station.getName()+" Station!");
 			}
 			
 			// When ready to depart, check that the track is clear and if
@@ -161,11 +161,11 @@ public class Train {
 			break;
 		case ON_ROUTE:
 			if(hasChanged){
-				logger.info(this.name+ " enroute to "+this.station.name+" Station!");
+				logger.info(this.name+ " enroute to "+this.station.getName()+" Station!");
 			}
 			
 			// Checkout if we have reached the new station
-			if(this.pos.distance(this.station.position) < 10 ){
+			if(this.pos.distance(this.station.getPosition()) < 10 ){
 				this.state = State.WAITING_ENTRY;
 			} else {
 				move(delta);
@@ -173,7 +173,7 @@ public class Train {
 			break;
 		case WAITING_ENTRY:
 			if(hasChanged){
-				logger.info(this.name+ " is awaiting entry "+this.station.name+" Station..!");
+				logger.info(this.name+ " is awaiting entry "+this.station.getName()+" Station..!");
 			}
 			
 			// Waiting to enter, we need to check the station has room and if so
@@ -181,7 +181,7 @@ public class Train {
 			try {
 				if(this.station.canEnter(this.trainLine)){
 					this.track.leave(this);
-					this.pos = (Point2D.Float) this.station.position.clone();
+					this.pos = (Point2D.Float) this.station.getPosition().clone();
 					this.station.enter(this);
 					this.state = State.IN_STATION;
 					this.disembarked = false;
@@ -197,7 +197,7 @@ public class Train {
 
 	public void move(float delta){
 		// Work out where we're going
-		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.position.x,this.station.position.y);
+		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.getPosition().x,this.station.getPosition().y);
 		float newX = this.pos.x + (float)( Math.cos(angle) * delta * TRAIN_SPEED);
 		float newY = this.pos.y + (float)( Math.sin(angle) * delta * TRAIN_SPEED);
 		this.pos.setLocation(newX, newY);
@@ -216,7 +216,7 @@ public class Train {
 
 	@Override
 	public String toString() {
-		return "Train [line=" + this.trainLine.name +", departureTimer=" + departureTimer + ", pos=" + pos + ", forward=" + forward + ", state=" + state
+		return "Train [line=" + this.trainLine.getName() +", departureTimer=" + departureTimer + ", pos=" + pos + ", forward=" + forward + ", state=" + state
 				+ ", numTrips=" + numTrips + ", disembarked=" + disembarked + "]";
 	}
 
@@ -264,4 +264,71 @@ public class Train {
 		this.state = State.READY_DEPART;
 	}
 	
+	
+	public static final int getMaxTrips(){
+		return MAX_TRIPS;
+	}
+	
+	public static final Color getForwardColour(){
+		return FORWARD_COLOUR;
+	}
+	
+	public static final Color getBackwardColour(){
+		return BACKWARD_COLOUR;
+	}
+	
+	public static final float getTrainWidth(){
+		return TRAIN_WIDTH;
+	}
+	
+	public static final float getTrainLength(){
+		return TRAIN_LENGTH;
+	}
+	
+	public static final float getTrainSpeed(){
+		return TRAIN_SPEED;
+	}
+	
+	public String getName(){
+		return name;
+	}
+	
+	public Line getLine(){
+		return trainLine;
+	}
+	
+	public float getDepartureTimer(){
+		return departureTimer;
+	}
+	public Station getStation(){
+		return station;
+	}
+	
+	public Track getTrack(){
+		return track;
+	}
+	
+	public Point2D.Float getPos(){
+		return pos;
+	}
+	
+	public boolean getForward(){
+		return forward;
+	}
+	
+	public State getState(){
+		return state;
+	}
+	
+	public int numTrips(){
+		return numTrips;
+	}
+	
+	public boolean getDisembarked(){
+		return disembarked;
+	}
+	
+	public State previousState(){
+		return previousState;
+	}
 }

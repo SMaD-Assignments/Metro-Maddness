@@ -12,7 +12,7 @@ public class PassengerGenerator {
 	// Passenger id generator
 	static protected int idGen = 1;
 	// The station that passengers are getting on
-	public Station s;
+	private Station s;
 	
 	public PassengerGenerator(Station s){
 		this.s = s;
@@ -51,6 +51,10 @@ public class PassengerGenerator {
 		Station s = l.getStations().get(index);
 		
 		return new Passenger(idGen++, this.s, s);
+	}
+	
+	public Station getStation(){
+		return s;
 	}
 	
 }

@@ -18,18 +18,18 @@ public class Station {
 	
 	protected static Logger logger = LogManager.getLogger();
 	
-	public static final int PLATFORMS=2;
+	private static final int PLATFORMS=2;
 	
-	public Point2D.Float position;
-	public static final float RADIUS=6;
-	public static final int NUM_CIRCLE_STATMENTS=100;
-	public static final int MAX_LINES=3;
-	public String name;
-	public ArrayList<Line> lines;
-	public ArrayList<Train> trains;
-	public static final float DEPARTURE_TIME = 2;
-	public ArrayList<Passenger> waiting;
-	public float maxVolume;
+	private Point2D.Float position;
+	private static final float RADIUS=6;
+	private static final int NUM_CIRCLE_STATMENTS=100;
+	private static final int MAX_LINES=3;
+	private String name;
+	private ArrayList<Line> lines;
+	private ArrayList<Train> trains;
+	private static final float DEPARTURE_TIME = 2;
+	private ArrayList<Passenger> waiting;
+	private float maxVolume;
 	protected PassengerGenerator g;
 	protected boolean isActive;
 
@@ -56,7 +56,7 @@ public class Station {
 		float radius = RADIUS;
 		for(int i=0; (i<this.lines.size() && i<MAX_LINES); i++){
 			Line l = this.lines.get(i);
-			renderer.setColor(l.lineColour);
+			renderer.setColor(l.getLineColour());
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
 		}
@@ -118,5 +118,31 @@ public class Station {
 	public float getMaxVolume() { return maxVolume; }
 	
 	public PassengerGenerator getPasGen() { return g; }
+	
+	public Point2D.Float getPosition(){
+		return position;
+	}
+	
+	public static final float getRadius(){
+		return RADIUS;
+	}
+	
+	public static final int getNumCircles(){
+		return NUM_CIRCLE_STATMENTS;
+	}
+	
+	public static final int getMaxLines(){
+		return MAX_LINES;
+	}
+	
+	public ArrayList<Line> getLines(){
+		return lines;
+	}
+	
+	public ArrayList<Train> getTrains(){
+		return trains;
+	}
+	
+	
 	
 }

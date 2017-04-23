@@ -53,7 +53,7 @@ public class MapReader implements MapReaderAdapter {
 			Array<Element> stationList = stations.getChildrenByName("station");
 			for(Element e : stationList){
 				Station s = processStation(e);
-				this.stations.put(s.name, s);
+				this.stations.put(s.getName(), s);
 			}
 			
 			// Process Lines
@@ -61,7 +61,7 @@ public class MapReader implements MapReaderAdapter {
 			Array<Element> lineList = lines.getChildrenByName("line");
 			for(Element e : lineList){
 				Line l = processLine(e);
-				this.lines.put(l.name, l);
+				this.lines.put(l.getName(), l);
 			}
 
 			// Process Trains

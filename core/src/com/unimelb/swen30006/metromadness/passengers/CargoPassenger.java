@@ -8,14 +8,14 @@ import com.unimelb.swen30006.metromadness.stations.Station;
 
 public class CargoPassenger extends Passenger {
 
-	public int cargoWeight;
+	private int cargoWeight;
 	
 	public CargoPassenger(int id, Random random, Station start, Station end) {
 		super(id, start, end);
 		this.cargoWeight = random.nextInt(51);
 	}
 	
-	@Override
+	
 	public int getWeight() {
 		return cargoWeight;
 	}
