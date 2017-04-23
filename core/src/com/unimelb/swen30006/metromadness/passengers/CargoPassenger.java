@@ -15,7 +15,7 @@ public class CargoPassenger extends Passenger {
 		this.cargoWeight = random.nextInt(51);
 	}
 	
-	
+	@Override
 	public int getWeight() {
 		return cargoWeight;
 	}

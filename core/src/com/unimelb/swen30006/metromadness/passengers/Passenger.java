@@ -40,9 +40,9 @@ public class Passenger {
 		return router.shouldEmbark(train, this);
 	}
 
-//	public int getWeight() {
-//		return 0;
-//	}
+	public int getWeight() {
+		return 0;
+	}
 	
 	public final int getId(){
 		return id;

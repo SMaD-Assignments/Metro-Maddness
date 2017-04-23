@@ -3943,3 +3943,182 @@
 2017-04-23 12:48:54 INFO  PassengerHandler - Passenger 16 carrying 22 kg cargo embarking at Footscray heading to Williamstown
 2017-04-23 12:48:54 INFO  PassengerHandler - Passenger 17 carrying 33 kg cargo embarking at Footscray heading to North Melbourne
 2017-04-23 12:48:54 INFO  PassengerHandler - Passenger 7 is disembarking at Footscray
+2017-04-23 14:19:26 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-23 14:19:26 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-23 14:19:26 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-23 14:19:26 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-23 14:19:26 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-23 14:19:26 INFO  Train - Orient Express is in Upfield Station.
+2017-04-23 14:19:26 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-23 14:19:26 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-23 14:19:26 INFO  PassengerHandler - Passenger 7 carrying 36 kg cargo embarking at Williamstown heading to Footscray
+2017-04-23 14:19:26 INFO  PassengerHandler - Passenger 8 carrying 16 kg cargo embarking at Williamstown heading to Southern Cross
+2017-04-23 14:19:26 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-23 14:19:26 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-23 14:19:26 INFO  Train - Orient Express is ready to depart for Upfield Station!
+2017-04-23 14:19:26 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-23 14:19:26 INFO  Train - Orient Express enroute to Macaulay Station!
+2017-04-23 14:19:28 INFO  Train - Thomas the Tank Engine is ready to depart for Rosanna Station!
+2017-04-23 14:19:28 INFO  Train - Flying Scotsman is ready to depart for Camberwell Station!
+2017-04-23 14:19:28 INFO  Train - Amtrak is ready to depart for Williamstown Station!
+2017-04-23 14:19:28 INFO  Train - Thomas the Tank Engine enroute to Greensborough Station!
+2017-04-23 14:19:28 INFO  Train - Flying Scotsman enroute to Ringwood Station!
+2017-04-23 14:19:28 INFO  Train - Amtrak enroute to Newport Station!
+2017-04-23 14:19:29 INFO  Train - Thomas the Tank Engine is awaiting entry Greensborough Station..!
+2017-04-23 14:19:29 INFO  Train - Thomas the Tank Engine is in Greensborough Station.
+2017-04-23 14:19:29 INFO  Train - Amtrak is awaiting entry Newport Station..!
+2017-04-23 14:19:29 INFO  Train - Amtrak is in Newport Station.
+2017-04-23 14:19:29 INFO  Train - Amtrak is ready to depart for Newport Station!
+2017-04-23 14:19:29 INFO  Train - Amtrak enroute to Footscray Station!
+2017-04-23 14:19:30 INFO  Train - Orient Express is awaiting entry Macaulay Station..!
+2017-04-23 14:19:30 INFO  Train - Orient Express is in Macaulay Station.
+2017-04-23 14:19:30 INFO  PassengerHandler - Passenger 12 carrying 39 kg cargo embarking at Macaulay heading to Southern Cross
+2017-04-23 14:19:30 INFO  PassengerHandler - Passenger 13 carrying 39 kg cargo embarking at Macaulay heading to Southern Cross
+2017-04-23 14:19:30 INFO  PassengerHandler - Passenger 14 carrying 16 kg cargo embarking at Macaulay heading to North Melbourne
+2017-04-23 14:19:30 INFO  PassengerHandler - Passenger 15 carrying 45 kg cargo embarking at Macaulay heading to North Melbourne
+2017-04-23 14:22:32 INFO  Train - Thomas the Tank Engine is travelling from the depot: Rosanna Station...
+2017-04-23 14:22:32 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 1 carrying 0 kg cargo embarking at Rosanna heading to Southern Cross
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 2 carrying 0 kg cargo embarking at Rosanna heading to Flinders St
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 3 carrying 0 kg cargo embarking at Rosanna heading to Hurstbridge
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 4 carrying 0 kg cargo embarking at Rosanna heading to Fairfield
+2017-04-23 14:22:32 INFO  Train - Flying Scotsman is travelling from the depot: Camberwell Station...
+2017-04-23 14:22:32 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 5 carrying 0 kg cargo embarking at Camberwell heading to Ringwood
+2017-04-23 14:22:32 INFO  Train - Orient Express is travelling from the depot: Upfield Station...
+2017-04-23 14:22:32 INFO  Train - Orient Express is in Upfield Station.
+2017-04-23 14:22:32 INFO  Train - Amtrak is travelling from the depot: Williamstown Station...
+2017-04-23 14:22:32 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 7 carrying 36 kg cargo embarking at Williamstown heading to Footscray
+2017-04-23 14:22:32 INFO  PassengerHandler - Passenger 8 carrying 16 kg cargo embarking at Williamstown heading to Southern Cross
+2017-04-23 14:22:32 INFO  Train - Thomas the Tank Engine is in Rosanna Station.
+2017-04-23 14:22:32 INFO  Train - Flying Scotsman is in Camberwell Station.
+2017-04-23 14:22:32 INFO  Train - Orient Express is ready to depart for Upfield Station!
+2017-04-23 14:22:32 INFO  Train - Amtrak is in Williamstown Station.
+2017-04-23 14:22:32 INFO  Train - Orient Express enroute to Macaulay Station!
+2017-04-23 14:22:34 INFO  Train - Thomas the Tank Engine is ready to depart for Rosanna Station!
+2017-04-23 14:22:34 INFO  Train - Flying Scotsman is ready to depart for Camberwell Station!
+2017-04-23 14:22:34 INFO  Train - Amtrak is ready to depart for Williamstown Station!
+2017-04-23 14:22:34 INFO  Train - Thomas the Tank Engine enroute to Greensborough Station!
+2017-04-23 14:22:34 INFO  Train - Flying Scotsman enroute to Ringwood Station!
+2017-04-23 14:22:34 INFO  Train - Amtrak enroute to Newport Station!
+2017-04-23 14:22:35 INFO  Train - Thomas the Tank Engine is awaiting entry Greensborough Station..!
+2017-04-23 14:22:35 INFO  Train - Thomas the Tank Engine is in Greensborough Station.
+2017-04-23 14:22:35 INFO  PassengerHandler - Passenger 9 carrying 0 kg cargo embarking at Greensborough heading to Eltham
+2017-04-23 14:22:35 INFO  PassengerHandler - Passenger 10 carrying 0 kg cargo embarking at Greensborough heading to Jolimont
+2017-04-23 14:22:35 INFO  PassengerHandler - Passenger 11 carrying 0 kg cargo embarking at Greensborough heading to Melbourne Central
+2017-04-23 14:22:35 INFO  Train - Amtrak is awaiting entry Newport Station..!
+2017-04-23 14:22:35 INFO  Train - Amtrak is in Newport Station.
+2017-04-23 14:22:35 INFO  Train - Amtrak is ready to depart for Newport Station!
+2017-04-23 14:22:35 INFO  Train - Amtrak enroute to Footscray Station!
+2017-04-23 14:22:36 INFO  Train - Orient Express is awaiting entry Macaulay Station..!
+2017-04-23 14:22:36 INFO  Train - Orient Express is in Macaulay Station.
+2017-04-23 14:22:36 INFO  PassengerHandler - Passenger 12 carrying 39 kg cargo embarking at Macaulay heading to Southern Cross
+2017-04-23 14:22:36 INFO  PassengerHandler - Passenger 13 carrying 39 kg cargo embarking at Macaulay heading to Southern Cross
+2017-04-23 14:22:36 INFO  PassengerHandler - Passenger 14 carrying 16 kg cargo embarking at Macaulay heading to North Melbourne
+2017-04-23 14:22:36 INFO  PassengerHandler - Passenger 15 carrying 45 kg cargo embarking at Macaulay heading to North Melbourne
+2017-04-23 14:22:37 INFO  Train - Thomas the Tank Engine is ready to depart for Greensborough Station!
+2017-04-23 14:22:37 INFO  Train - Thomas the Tank Engine enroute to Eltham Station!
+2017-04-23 14:22:37 INFO  Train - Amtrak is awaiting entry Footscray Station..!
+2017-04-23 14:22:37 INFO  Train - Amtrak is in Footscray Station.
+2017-04-23 14:22:37 INFO  PassengerHandler - Passenger 16 carrying 22 kg cargo embarking at Footscray heading to Williamstown
+2017-04-23 14:22:37 INFO  PassengerHandler - Passenger 17 carrying 33 kg cargo embarking at Footscray heading to North Melbourne
+2017-04-23 14:22:37 INFO  PassengerHandler - Passenger 7 is disembarking at Footscray
+2017-04-23 14:22:37 INFO  Train - Thomas the Tank Engine is awaiting entry Eltham Station..!
+2017-04-23 14:22:37 INFO  Train - Thomas the Tank Engine is in Eltham Station.
+2017-04-23 14:22:37 INFO  PassengerHandler - Passenger 18 carrying 0 kg cargo embarking at Eltham heading to Hurstbridge
+2017-04-23 14:22:37 INFO  PassengerHandler - Passenger 9 is disembarking at Eltham
+2017-04-23 14:22:38 INFO  Train - Orient Express is ready to depart for Macaulay Station!
+2017-04-23 14:22:38 INFO  Train - Orient Express enroute to North Melbourne Station!
+2017-04-23 14:22:38 INFO  Train - Flying Scotsman is awaiting entry Ringwood Station..!
+2017-04-23 14:22:38 INFO  Train - Flying Scotsman is in Ringwood Station.
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 19 carrying 0 kg cargo embarking at Ringwood heading to Belgrave
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 20 carrying 0 kg cargo embarking at Ringwood heading to Belgrave
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 21 carrying 0 kg cargo embarking at Ringwood heading to Belgrave
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 5 is disembarking at Ringwood
+2017-04-23 14:22:38 INFO  Train - Orient Express is awaiting entry North Melbourne Station..!
+2017-04-23 14:22:38 INFO  Train - Orient Express is in North Melbourne Station.
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 23 carrying 9 kg cargo embarking at North Melbourne heading to Southern Cross
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 24 carrying 22 kg cargo embarking at North Melbourne heading to Southern Cross
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 14 is disembarking at North Melbourne
+2017-04-23 14:22:38 INFO  PassengerHandler - Passenger 15 is disembarking at North Melbourne
+2017-04-23 14:22:39 INFO  Train - Amtrak is ready to depart for Footscray Station!
+2017-04-23 14:22:39 INFO  Train - Amtrak enroute to North Melbourne Station!
+2017-04-23 14:22:39 INFO  Train - Thomas the Tank Engine is ready to depart for Eltham Station!
+2017-04-23 14:22:39 INFO  Train - Thomas the Tank Engine enroute to Hurstbridge Station!
+2017-04-23 14:22:40 INFO  Train - Amtrak is awaiting entry North Melbourne Station..!
+2017-04-23 14:22:40 INFO  Train - Amtrak is in North Melbourne Station.
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 22 carrying 31 kg cargo embarking at North Melbourne heading to Footscray
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 25 carrying 21 kg cargo embarking at North Melbourne heading to Southern Cross
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 26 carrying 43 kg cargo embarking at North Melbourne heading to Footscray
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 27 carrying 1 kg cargo embarking at North Melbourne heading to Footscray
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 28 carrying 23 kg cargo embarking at North Melbourne heading to Southern Cross
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 17 is disembarking at North Melbourne
+2017-04-23 14:22:40 INFO  Train - Flying Scotsman is ready to depart for Ringwood Station!
+2017-04-23 14:22:40 INFO  Train - Flying Scotsman enroute to Belgrave Station!
+2017-04-23 14:22:40 INFO  Train - Thomas the Tank Engine is awaiting entry Hurstbridge Station..!
+2017-04-23 14:22:40 INFO  Train - Thomas the Tank Engine is in Hurstbridge Station.
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 29 carrying 0 kg cargo embarking at Hurstbridge heading to North Richmond
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 30 carrying 0 kg cargo embarking at Hurstbridge heading to Eltham
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 3 is disembarking at Hurstbridge
+2017-04-23 14:22:40 INFO  PassengerHandler - Passenger 18 is disembarking at Hurstbridge
+2017-04-23 14:22:40 INFO  Train - Orient Express is ready to depart for North Melbourne Station!
+2017-04-23 14:22:40 INFO  Train - Orient Express enroute to Flagstaff Station!
+2017-04-23 14:22:41 INFO  Train - Orient Express is awaiting entry Flagstaff Station..!
+2017-04-23 14:22:41 INFO  Train - Orient Express is in Flagstaff Station.
+2017-04-23 14:22:41 INFO  Train - Orient Express is ready to depart for Flagstaff Station!
+2017-04-23 14:22:41 INFO  Train - Orient Express enroute to Melbourne Central Station!
+2017-04-23 14:23:04 INFO  Train - Generic European Train is travelling from the depot: Paris Station...
+2017-04-23 14:23:04 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 14:23:04 INFO  PassengerHandler - Passenger 1 carrying 0 kg cargo embarking at Paris heading to London
+2017-04-23 14:23:04 INFO  PassengerHandler - Passenger 3 carrying 0 kg cargo embarking at Paris heading to Berlin
+2017-04-23 14:23:04 INFO  PassengerHandler - Passenger 4 carrying 0 kg cargo embarking at Paris heading to Amsterdam
+2017-04-23 14:23:04 INFO  Train - Vlad the Impalator is travelling from the depot: Bucharest Station...
+2017-04-23 14:23:04 INFO  Train - Vlad the Impalator is in Bucharest Station.
+2017-04-23 14:23:04 INFO  Train - Thomas the Tank Engine is travelling from the depot: Glasgow Station...
+2017-04-23 14:23:04 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 14:23:04 INFO  Train - Generic European Train is in Paris Station.
+2017-04-23 14:23:04 INFO  Train - Vlad the Impalator is ready to depart for Bucharest Station!
+2017-04-23 14:23:04 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 14:23:04 INFO  Train - Vlad the Impalator enroute to Budapest Station!
+2017-04-23 14:23:04 INFO  Train - Thomas the Tank Engine enroute to Manchester Station!
+2017-04-23 14:23:05 INFO  Train - Vlad the Impalator is awaiting entry Budapest Station..!
+2017-04-23 14:23:05 INFO  Train - Thomas the Tank Engine is awaiting entry Manchester Station..!
+2017-04-23 14:23:05 INFO  Train - Vlad the Impalator is in Budapest Station.
+2017-04-23 14:23:05 INFO  Train - Thomas the Tank Engine is in Manchester Station.
+2017-04-23 14:23:05 INFO  Train - Vlad the Impalator is ready to depart for Budapest Station!
+2017-04-23 14:23:05 INFO  Train - Thomas the Tank Engine is ready to depart for Manchester Station!
+2017-04-23 14:23:05 INFO  Train - Vlad the Impalator enroute to Vienna Station!
+2017-04-23 14:23:05 INFO  Train - Thomas the Tank Engine enroute to London Station!
+2017-04-23 14:23:06 INFO  Train - Generic European Train is ready to depart for Paris Station!
+2017-04-23 14:23:06 INFO  Train - Generic European Train enroute to London Station!
+2017-04-23 14:23:06 INFO  Train - Thomas the Tank Engine is awaiting entry London Station..!
+2017-04-23 14:23:06 INFO  Train - Thomas the Tank Engine is in London Station.
+2017-04-23 14:23:06 INFO  Train - Thomas the Tank Engine is ready to depart for London Station!
+2017-04-23 14:23:06 INFO  Train - Thomas the Tank Engine enroute to Manchester Station!
+2017-04-23 14:23:06 INFO  Train - Vlad the Impalator is awaiting entry Vienna Station..!
+2017-04-23 14:23:06 INFO  Train - Vlad the Impalator is in Vienna Station.
+2017-04-23 14:23:06 INFO  Train - Vlad the Impalator is ready to depart for Vienna Station!
+2017-04-23 14:23:06 INFO  Train - Vlad the Impalator enroute to Berlin Station!
+2017-04-23 14:23:07 INFO  Train - Generic European Train is awaiting entry London Station..!
+2017-04-23 14:23:07 INFO  Train - Generic European Train is in London Station.
+2017-04-23 14:23:07 INFO  PassengerHandler - Passenger 6 carrying 0 kg cargo embarking at London heading to Paris
+2017-04-23 14:23:07 INFO  PassengerHandler - Passenger 1 is disembarking at London
+2017-04-23 14:23:07 INFO  Train - Thomas the Tank Engine is awaiting entry Manchester Station..!
+2017-04-23 14:23:07 INFO  Train - Thomas the Tank Engine is in Manchester Station.
+2017-04-23 14:23:07 INFO  Train - Thomas the Tank Engine is ready to depart for Manchester Station!
+2017-04-23 14:23:07 INFO  Train - Thomas the Tank Engine enroute to Glasgow Station!
+2017-04-23 14:23:07 INFO  Train - Vlad the Impalator is awaiting entry Berlin Station..!
+2017-04-23 14:23:07 INFO  Train - Vlad the Impalator is in Berlin Station.
+2017-04-23 14:23:07 INFO  Train - Vlad the Impalator is ready to depart for Berlin Station!
+2017-04-23 14:23:07 INFO  Train - Vlad the Impalator enroute to Paris Station!
+2017-04-23 14:23:08 INFO  Train - Thomas the Tank Engine is awaiting entry Glasgow Station..!
+2017-04-23 14:23:08 INFO  Train - Thomas the Tank Engine is in Glasgow Station.
+2017-04-23 14:23:08 INFO  Train - Thomas the Tank Engine is ready to depart for Glasgow Station!
+2017-04-23 14:23:09 INFO  Train - Thomas the Tank Engine enroute to Manchester Station!
+2017-04-23 14:23:09 INFO  Train - Vlad the Impalator is awaiting entry Paris Station..!
+2017-04-23 14:23:09 INFO  Train - Vlad the Impalator is in Paris Station.
+2017-04-23 14:23:09 INFO  Train - Vlad the Impalator is ready to depart for Paris Station!
+2017-04-23 14:23:09 INFO  Train - Vlad the Impalator enroute to Berlin Station!
+2017-04-23 14:23:09 INFO  Train - Generic European Train is ready to depart for London Station!
+2017-04-23 14:23:09 INFO  Train - Generic European Train enroute to Amsterdam Station!

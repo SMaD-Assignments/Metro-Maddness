@@ -26,7 +26,7 @@ public class CargoRouter implements RouterAdapter{
 		}
 		
 		// Check if the passenger can fit on the train then return if the passenger should board
-		return (isOnLine && !train.isFull() && ((CargoTrain) train).hasCargoSpace(((CargoPassenger) p).getWeight()));
+		return (isOnLine && !train.isFull() && ((CargoTrain) train).hasCargoSpace(p.getWeight()));
 	}
 
 	@Override

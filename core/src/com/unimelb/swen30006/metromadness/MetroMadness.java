@@ -17,8 +17,8 @@ import com.badlogic.gdx.math.MathUtils;
 public class MetroMadness extends ApplicationAdapter {
 	
 	// Name of map Files
-	private static final String filename = "../core/assets/maps/melbourne.xml";
-//	private static final String filename = "../core/assets/maps/world.xml";
+//	private static final String filename = "../core/assets/maps/melbourne.xml";
+	private static final String filename = "../core/assets/maps/world.xml";
 
 	// The width of the world in unitless dimensions
     static final int WORLD_WIDTH = 1200;
