@@ -10,12 +10,25 @@ import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
 
+/** SWEN30006 Software Modeling and Design
+Simulation class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Sets up simulation and calls update and render methods
+*/
 public class Simulation {
 	
-	public ArrayList<Station> stations;
-	public ArrayList<Line> lines;
-	public ArrayList<Train> trains;
+	// ArrayLists saved to allow the simulation to handle rendering of all items, and updating of train
+	private ArrayList<Station> stations;
+	private ArrayList<Line> lines;
+	private ArrayList<Train> trains;
 	
+	/**
+	 * Constructor uses MapReader
+	 * @param fileName - name of map file to read
+	 */
 	public Simulation(String fileName){
 		// Create a map reader and read in the file
 		MapReaderAdapter m = new MapReader(fileName);
@@ -34,7 +47,9 @@ public class Simulation {
 	}
 	
 	
-	// Update all the trains in the simulation
+	/**
+	 *  Update all the trains in the simulation
+	 */
 	public void update(){
 		// Update all the trains
 		for(Train t: this.trains){
@@ -42,6 +57,10 @@ public class Simulation {
 		}
 	}
 	
+	/**
+	 * Render all items
+	 * @param renderer - from LibGDX
+	 */
 	public void render(ShapeRenderer renderer){
 		for(Line l: this.lines){
 			l.render(renderer);

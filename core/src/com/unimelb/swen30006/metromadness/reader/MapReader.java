@@ -19,20 +19,37 @@ import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.CargoTrain;
 import com.unimelb.swen30006.metromadness.trains.Train;
 
+/** SWEN30006 Software Modeling and Design
+MapReader class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Reads and interprets a .xml map
+*/
 public class MapReader implements MapReaderAdapter {
 
+	// Constants for train size
 	private final int SMALL_TRAIN_SIZE = 10;
 	private final int BIG_TRAIN_SIZE = 80;
 	private final int SMALL_CARGO_SIZE = 200;
 	private final int BIG_CARGO_SIZE = 1000;
 	
+	// Collections for created items
 	private ArrayList<Train> trains;
 	private HashMap<String, Station> stations;
 	private HashMap<String, Line> lines;
 
+	// Boolean to check if file has been processed
 	private boolean processed;
+	
+	// file to read
 	private String filename;
 
+	/**
+	 * Constructor sets up environment but does not process
+	 * @param filename - destination of map file
+	 */
 	public MapReader(String filename){
 		this.trains = new ArrayList<Train>();
 		this.stations = new HashMap<String, Station>();
@@ -41,6 +58,9 @@ public class MapReader implements MapReaderAdapter {
 		this.processed = false;
 	}
 
+	/**
+	 * Private process method called the first time a getter is used
+	 */
 	private void process(){
 		try {
 			// Build the doc factory
@@ -53,7 +73,7 @@ public class MapReader implements MapReaderAdapter {
 			Array<Element> stationList = stations.getChildrenByName("station");
 			for(Element e : stationList){
 				Station s = processStation(e);
-				this.stations.put(s.name, s);
+				this.stations.put(s.getName(), s);
 			}
 			
 			// Process Lines
@@ -61,7 +81,7 @@ public class MapReader implements MapReaderAdapter {
 			Array<Element> lineList = lines.getChildrenByName("line");
 			for(Element e : lineList){
 				Line l = processLine(e);
-				this.lines.put(l.name, l);
+				this.lines.put(l.getName(), l);
 			}
 
 			// Process Trains
@@ -80,24 +100,38 @@ public class MapReader implements MapReaderAdapter {
 		}
 	}
 	
+	/**
+	 * Interface method used to get collection of trains
+	 */
 	@Override
 	public Collection<Train> getTrains(){
 		if(!this.processed) { this.process(); }
 		return this.trains;
 	}
 	
+	/**
+	 * Interface method used to get collection of lines
+	 */
 	@Override
 	public Collection<Line> getLines(){
 		if(!this.processed) { this.process(); }
 		return this.lines.values();
 	}
 	
+	/**
+	 * Interface method used to get collection of stations
+	 */
 	@Override
 	public Collection<Station> getStations(){
 		if(!this.processed) { this.process(); }
 		return this.stations.values();
 	}
 
+	/**
+	 * process the section of file
+	 * @param e - element of XML with info about a train
+	 * @return - created train
+	 */
 	private Train processTrain(Element e){
 		// Retrieve the values
 		String type = e.get("type");
@@ -123,7 +157,12 @@ public class MapReader implements MapReaderAdapter {
 			return new Train(l, s, dir,name, 0);
 		}
 	}
-
+	
+	/**
+	 * process the section of file
+	 * @param e - element of XML with info about a station
+	 * @return - created station
+	 */
 	private Station processStation(Element e){
 		String type = e.get("type");
 		String name = e.get("name");
@@ -149,6 +188,11 @@ public class MapReader implements MapReaderAdapter {
 		}
 	}
 
+	/**
+	 * process the section of file
+	 * @param e - element of XML with info about a line
+	 * @return - created line
+	 */
 	private Line processLine(Element e){
 		Color stationCol = extractColour(e.getChildByName("station_colour"));
 		Color lineCol = extractColour(e.getChildByName("line_colour"));
@@ -165,6 +209,11 @@ public class MapReader implements MapReaderAdapter {
 		return l;
 	}
 	
+	/**
+	 * process the section of file
+	 * @param e - element of XML with info about colour to use
+	 * @return - found colour
+	 */
 	private Color extractColour(Element e){
 		float red = e.getFloat("red")/255f;
 		float green = e.getFloat("green")/255f;

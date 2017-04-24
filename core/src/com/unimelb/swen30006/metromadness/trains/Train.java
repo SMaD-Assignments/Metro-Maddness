@@ -14,6 +14,14 @@ import com.unimelb.swen30006.metromadness.stations.Station;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.tracks.Track;
 
+/** SWEN30006 Software Modeling and Design
+Train Class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Represents the trains in the simulation
+*/
 public class Train {
 	
 	// Logger
@@ -24,42 +32,48 @@ public class Train {
 	}
 
 	// Constants
-	public static final int MAX_TRIPS=4;
-	public static final Color FORWARD_COLOUR = Color.ORANGE;
-	public static final Color BACKWARD_COLOUR = Color.VIOLET;
-	public static final float TRAIN_WIDTH=4;
-	public static final float TRAIN_LENGTH = 6;
-	public static final float TRAIN_SPEED=50f;
+	protected static final int MAX_TRIPS=4;
+	protected static final Color FORWARD_COLOUR = Color.ORANGE;
+	protected static final Color BACKWARD_COLOUR = Color.VIOLET;
+	protected static final float TRAIN_WIDTH=4;
+	protected static final float TRAIN_LENGTH = 6;
+	protected static final float TRAIN_SPEED=50f;
 	
 	// The train's name
-	
-	public String name;
+	protected String name;
 
 	// The line that this is traveling on
-	public Line trainLine;
+	protected Line trainLine;
 
 	// Passenger Information
-	public ArrayList<Passenger> passengers;
-	public float departureTimer;
+	protected ArrayList<Passenger> passengers;
+	protected float departureTimer;
 	protected int maxPassengers;
 	
 	// Station and track and position information
-	public Station station; 
-	public Track track;
-	public Point2D.Float pos;
+	protected Station station; 
+	protected Track track;
+	protected Point2D.Float pos;
 
 	// Direction and direction
-	public boolean forward;
-	public State state;
+	protected boolean forward;
+	protected State state;
 
 	// State variables
-	public int numTrips;
-	public boolean disembarked;
+	protected int numTrips;
+	protected boolean disembarked;
 	
 	
-	public State previousState = null;
+	protected State previousState = null;
 
-	
+	/**
+	 * Constructor
+	 * @param trainLine - line train takes
+	 * @param start - beginning station
+	 * @param forward - direction of movement
+	 * @param name - name of train
+	 * @param size - passenger capacity
+	 */
 	public Train(Line trainLine, Station start, boolean forward, String name, int size){
 		this.trainLine = trainLine;
 		this.station = start;
@@ -70,6 +84,10 @@ public class Train {
 		this.maxPassengers = size;
 	}
 
+	/**
+	 * Update the train and handles movement and calls PassengerHandler for passenger interactions
+	 * @param delta - time since last update
+	 */
 	public void update(float delta){
 		// Update all passengers
 		PassengerHandler.update(passengers, delta);
@@ -84,7 +102,7 @@ public class Train {
 		switch(this.state) {
 		case FROM_DEPOT:
 			if(hasChanged){
-				logger.info(this.name+ " is travelling from the depot: "+this.station.name+" Station...");
+				logger.info(this.name+ " is travelling from the depot: "+this.station.getName()+" Station...");
 			}
 			
 			// We have our station initialized we just need to retrieve the next track, enter the
@@ -93,7 +111,7 @@ public class Train {
 				if(this.station.canEnter(this.trainLine)){
 					
 					this.station.enter(this);
-					this.pos = (Point2D.Float) this.station.position.clone();
+					this.pos = (Point2D.Float) this.station.getPosition().clone();
 					this.state = State.IN_STATION;
 					this.disembarked = false;
 				}
@@ -102,7 +120,7 @@ public class Train {
 			}
 		case IN_STATION:
 			if(hasChanged){
-				logger.info(this.name+" is in "+this.station.name+" Station.");
+				logger.info(this.name+" is in "+this.station.getName()+" Station.");
 				// If the train should not stop at the station continue through
 				if (isExpress()) {
 					try {
@@ -139,7 +157,7 @@ public class Train {
 			break;
 		case READY_DEPART:
 			if(hasChanged){
-				logger.info(this.name+ " is ready to depart for "+this.station.name+" Station!");
+				logger.info(this.name+ " is ready to depart for "+this.station.getName()+" Station!");
 			}
 			
 			// When ready to depart, check that the track is clear and if
@@ -161,11 +179,11 @@ public class Train {
 			break;
 		case ON_ROUTE:
 			if(hasChanged){
-				logger.info(this.name+ " enroute to "+this.station.name+" Station!");
+				logger.info(this.name+ " enroute to "+this.station.getName()+" Station!");
 			}
 			
 			// Checkout if we have reached the new station
-			if(this.pos.distance(this.station.position) < 10 ){
+			if(this.pos.distance(this.station.getPosition()) < 10 ){
 				this.state = State.WAITING_ENTRY;
 			} else {
 				move(delta);
@@ -173,7 +191,7 @@ public class Train {
 			break;
 		case WAITING_ENTRY:
 			if(hasChanged){
-				logger.info(this.name+ " is awaiting entry "+this.station.name+" Station..!");
+				logger.info(this.name+ " is awaiting entry "+this.station.getName()+" Station..!");
 			}
 			
 			// Waiting to enter, we need to check the station has room and if so
@@ -181,7 +199,7 @@ public class Train {
 			try {
 				if(this.station.canEnter(this.trainLine)){
 					this.track.leave(this);
-					this.pos = (Point2D.Float) this.station.position.clone();
+					this.pos = (Point2D.Float) this.station.getPosition().clone();
 					this.station.enter(this);
 					this.state = State.IN_STATION;
 					this.disembarked = false;
@@ -195,14 +213,22 @@ public class Train {
 
 	}
 
+	/**
+	 * Move the train
+	 * @param delta - time since last step
+	 */
 	public void move(float delta){
 		// Work out where we're going
-		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.position.x,this.station.position.y);
+		float angle = angleAlongLine(this.pos.x,this.pos.y,this.station.getPosition().x,this.station.getPosition().y);
 		float newX = this.pos.x + (float)( Math.cos(angle) * delta * TRAIN_SPEED);
 		float newY = this.pos.y + (float)( Math.sin(angle) * delta * TRAIN_SPEED);
 		this.pos.setLocation(newX, newY);
 	}
 
+	/**
+	 * Adds given passenger to train
+	 * @throws Exception - if train is full
+	 */
 	public void embark(Passenger p) throws Exception {
 		if(this.passengers.size() > maxPassengers){
 			throw new Exception();
@@ -210,24 +236,40 @@ public class Train {
 		this.passengers.add(p);
 	}
 	
+	/**
+	 * removes given passenger
+	 */
 	public void disembark(Passenger p) {
 		passengers.remove(p);
 	}
 
+	/**
+	 * returns train status as a string
+	 */
 	@Override
 	public String toString() {
-		return "Train [line=" + this.trainLine.name +", departureTimer=" + departureTimer + ", pos=" + pos + ", forward=" + forward + ", state=" + state
+		return "Train [line=" + this.trainLine.getName() +", departureTimer=" + departureTimer + ", pos=" + pos + ", forward=" + forward + ", state=" + state
 				+ ", numTrips=" + numTrips + ", disembarked=" + disembarked + "]";
 	}
 
+	/**
+	 * determines if train is in a station
+	 */
 	public boolean inStation(){
 		return (this.state == State.IN_STATION || this.state == State.READY_DEPART);
 	}
 	
+	/**
+	 * Used to calculate angle for moving along a line in render
+	 */
 	public float angleAlongLine(float x1, float y1, float x2, float y2){	
 		return (float) Math.atan2((y2-y1),(x2-x1));
 	}
 
+	/**
+	 * Render the train
+	 * @param renderer - renderer from libGDX
+	 */
 	public void render(ShapeRenderer renderer){
 		if(!this.inStation()){
 			float percentage = 0f;
@@ -245,16 +287,24 @@ public class Train {
 		}
 	}
 	
-	public ArrayList<Station> getStops() { return trainLine.getStations(); }
-	
+	/**
+	 * checks if the train is full
+	 * @return
+	 */
 	public boolean isFull() {
 		return (maxPassengers <= passengers.size());
 	}
 	
 	public ArrayList<Passenger> getPassengers() { return passengers; }
 	
+	/**
+	 * Normal train is never express
+	 */
 	protected boolean isExpress() { return false; }
 	
+	/**
+	 * Prepares train to depart station
+	 */
 	protected void depart() throws Exception {
 		boolean endOfLine = this.trainLine.endOfLine(this.station);
 		if(endOfLine){
@@ -264,4 +314,6 @@ public class Train {
 		this.state = State.READY_DEPART;
 	}
 	
+	public ArrayList<Station> getStops() { return trainLine.getStations(); }
+	public boolean getForward(){ return forward; }
 }

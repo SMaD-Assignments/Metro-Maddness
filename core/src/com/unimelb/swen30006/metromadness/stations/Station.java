@@ -14,25 +14,41 @@ import com.unimelb.swen30006.metromadness.passengers.PassengerGenerator;
 import com.unimelb.swen30006.metromadness.tracks.Line;
 import com.unimelb.swen30006.metromadness.trains.Train;
 
+/** SWEN30006 Software Modeling and Design
+Station class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Represents stations in the simulation
+*/
 public class Station {
 	
 	protected static Logger logger = LogManager.getLogger();
-	
-	public static final int PLATFORMS=2;
-	
-	public Point2D.Float position;
-	public static final float RADIUS=6;
-	public static final int NUM_CIRCLE_STATMENTS=100;
-	public static final int MAX_LINES=3;
-	public String name;
-	public ArrayList<Line> lines;
-	public ArrayList<Train> trains;
-	public static final float DEPARTURE_TIME = 2;
-	public ArrayList<Passenger> waiting;
-	public float maxVolume;
+	protected static final int PLATFORMS=2;
+	protected Point2D.Float position;
+	protected static final float RADIUS=6;
+	protected static final int NUM_CIRCLE_STATMENTS=100;
+	protected static final int MAX_LINES=3;
+	protected String name;
+	protected ArrayList<Line> lines;
+	protected ArrayList<Train> trains;
+	protected static final float DEPARTURE_TIME = 2;
+	protected ArrayList<Passenger> waiting;
+	protected float maxVolume;
 	protected PassengerGenerator g;
+	
+	// Boolean to used to check if trains should stop at the station
 	protected boolean isActive;
 
+	/**
+	 * Constructor
+	 * @param x - x coordinate for rendering
+	 * @param y - y coordinate for rendering
+	 * @param name - station name
+	 * @param maxPas - maximum passengers that can wait at the station
+	 * @param active - if the station should begin as active
+	 */
 	public Station(float x, float y, String name, float maxPas, boolean active){
 		this.name = name;
 		this.position = new Point2D.Float(x,y);
@@ -44,19 +60,29 @@ public class Station {
 		isActive = active;
 	}
 	
+	/**
+	 * Creates the passenger generator, used for greater extendability
+	 */
 	protected PassengerGenerator createGen() {
 		return new PassengerGenerator(this);
 	}
 	
+	/**
+	 * Adds a line to the station
+	 */
 	public void registerLine(Line l){
 		this.lines.add(l);
 	}
 	
+	/**
+	 * Renders the station
+	 * @param renderer - renderer form libGDX
+	 */
 	public void render(ShapeRenderer renderer){
 		float radius = RADIUS;
 		for(int i=0; (i<this.lines.size() && i<MAX_LINES); i++){
 			Line l = this.lines.get(i);
-			renderer.setColor(l.lineColour);
+			renderer.setColor(l.getLineColour());
 			renderer.circle(this.position.x, this.position.y, radius, NUM_CIRCLE_STATMENTS);
 			radius = radius - 1;
 		}
@@ -72,6 +98,11 @@ public class Station {
 			
 	}
 	
+	/**
+	 * Puts a train into the station
+	 * @param t - train to enter
+	 * @throws Exception - if station is full
+	 */
 	public void enter(Train t) throws Exception {
 		if(trains.size() >= PLATFORMS){
 			throw new Exception();
@@ -80,7 +111,11 @@ public class Station {
 		}
 	}
 	
-	
+	/**
+	 * Removes a train from the station
+	 * @param t - train to remove
+	 * @throws Exception - if train is not there
+	 */
 	public void depart(Train t) throws Exception {
 		if(this.trains.contains(t)){
 			this.trains.remove(t);
@@ -89,34 +124,43 @@ public class Station {
 		}
 	}
 	
+	/**
+	 * Determines if a train can enter the station from given line
+	 * @param l - line to enter from
+	 */
 	public boolean canEnter(Line l) throws Exception {
 		return trains.size() < PLATFORMS;
 	}
 
-	// Returns departure time in seconds
+	/**
+	 *  Returns departure time in seconds
+	 */
 	public float getDepartureTime() {
 		return DEPARTURE_TIME;
 	}
 
-
+	/**
+	 * Returns station stats as a string
+	 */
 	@Override
 	public String toString() {
 		return "Station [position=" + position + ", name=" + name + ", trains=" + trains.size()
 				 + "]";
 	}
 	
-	public boolean checkActive() {return isActive;}
-	
+	/**
+	 * Returns a random line registered to the station
+	 * @param random -  randomizer to use
+	 */
 	public Line getRandLine(Random random) {
 		return lines.get(random.nextInt(lines.size()));
 	}
 	
+	public boolean checkActive() {return isActive;}
 	public ArrayList<Passenger> getWaiting() { return waiting; }
-	
 	public String getName() { return name; }
-	
 	public float getMaxVolume() { return maxVolume; }
-	
 	public PassengerGenerator getPasGen() { return g; }
+	public Point2D.Float getPosition(){ return position; }
 	
 }

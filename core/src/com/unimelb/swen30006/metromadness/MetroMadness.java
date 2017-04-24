@@ -14,6 +14,14 @@ import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer.ShapeType;
 import com.badlogic.gdx.math.MathUtils;
 
+/** SWEN30006 Software Modeling and Design
+MetroMadness class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Overarching class that sets up the simulation and handles interactions with libGDX
+*/
 public class MetroMadness extends ApplicationAdapter {
 	
 	// Name of map Files
@@ -25,8 +33,8 @@ public class MetroMadness extends ApplicationAdapter {
     static final int WORLD_HEIGHT = 1200;
 
     // Viewport state
-    int VIEWPORT_WIDTH=200;
-	float viewport_width;
+    private int VIEWPORT_WIDTH = WORLD_WIDTH;
+	private float viewport_width;
 
 	// Data for simluation, rendering and camera.
 	Simulation sim;
@@ -37,13 +45,19 @@ public class MetroMadness extends ApplicationAdapter {
 	BitmapFont smaller;
 	BitmapFont header;
 
+	/**
+	 * Override to set the size of the map
+	 */
 	@Override
 	public void resize(int width, int height) {
         camera.viewportWidth = viewport_width;
         camera.viewportHeight = viewport_width * (float)height/width;
         camera.update();
 	}
-
+	
+	/**
+	 * Override to set up the simulation run the simulation
+	 */
 	@Override
 	public void create () {
 		// Create the simulation
@@ -61,13 +75,13 @@ public class MetroMadness extends ApplicationAdapter {
 		shapeRenderer = new ShapeRenderer();
 		
 		// Create our font
-		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Gotham-Book.ttf"));
+		FreeTypeFontGenerator generator = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Gotham-Book.ttf"));
 		FreeTypeFontParameter parameter = new FreeTypeFontParameter();
 		parameter.size = 12;
 		smaller = generator.generateFont(parameter); // font size 12 pixels
 		generator.dispose(); // don't forget to dispose to avoid memory leaks!
 
-		FreeTypeFontGenerator headlineGen = new FreeTypeFontGenerator(Gdx.files.internal("fonts/Gotham-Bold.ttf"));
+		FreeTypeFontGenerator headlineGen = new FreeTypeFontGenerator(Gdx.files.internal("assets/fonts/Gotham-Bold.ttf"));
 		FreeTypeFontParameter headlineParam = new FreeTypeFontParameter();
 		headlineParam.size = 40;
 		header = headlineGen.generateFont(headlineParam); // font size 12 pixels
@@ -79,6 +93,9 @@ public class MetroMadness extends ApplicationAdapter {
 
 	}
 
+	/**
+	 * Override to render all aspects of the simulation, and the title
+	 */
 	@Override
 	public void render () {
 		// Clear the graphics to white
@@ -111,6 +128,9 @@ public class MetroMadness extends ApplicationAdapter {
 
 	}
 	
+	/**
+	 * private method to simplify the render method by handling user input
+	 */
     private void handleInput() {
         if (Gdx.input.isKeyPressed(Input.Keys.A)) {
             camera.zoom += 0.1;

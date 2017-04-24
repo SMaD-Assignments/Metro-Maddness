@@ -6,20 +6,33 @@ import com.badlogic.gdx.graphics.Color;
 import com.badlogic.gdx.graphics.glutils.ShapeRenderer;
 import com.unimelb.swen30006.metromadness.stations.Station;
 
+/** SWEN30006 Software Modeling and Design
+Line class
+George Juliff - 624946
+David Murges - 657384
+Thomas Miles - 626263
+
+Represents the train lines in the simulation
+*/
 public class Line {
 	
 	// The colour of this line
-	public Color lineColour;
-	public Color trackColour;
+	private Color lineColour;
+	private Color trackColour;
 	
 	// The name of this line
-	public String name;
+	private String name;
 	// The stations on this line
-	public ArrayList<Station> stations;
+	private ArrayList<Station> stations;
 	// The tracks on this line between stations
-	public ArrayList<Track> tracks;
+	private ArrayList<Track> tracks;
 		
-	// Create a line
+	/**
+	 * Constructor
+	 * @param stationColour - colour for rendering
+	 * @param lineColour - colour for lines
+	 * @param name - line name
+	 */
 	public Line(Color stationColour, Color lineColour, String name){
 		// Set the line colour
 		this.lineColour = stationColour;
@@ -32,6 +45,11 @@ public class Line {
 	}
 	
 	
+	/**
+	 * Add a station to the line
+	 * @param s - station to add
+	 * @param two_way - if the line can have a train each way or not
+	 */
 	public void addStation(Station s, Boolean two_way){
 		// We need to build the track if this is adding to existing stations
 		if(this.stations.size() > 0){
@@ -41,9 +59,9 @@ public class Line {
 			// Generate a new track
 			Track t;
 			if(two_way){
-				t = new DualTrack(last.position, s.position, this.trackColour);
+				t = new DualTrack(last.getPosition(), s.getPosition(), this.trackColour);
 			} else {
-				t = new Track(last.position, s.position, this.trackColour);
+				t = new Track(last.getPosition(), s.getPosition(), this.trackColour);
 			}
 			this.tracks.add(t);
 		}
@@ -53,12 +71,19 @@ public class Line {
 		this.stations.add(s);
 	}
 	
+	/**
+	 * Returns line status as a string
+	 */
 	@Override
 	public String toString() {
 		return "Line [lineColour=" + lineColour + ", trackColour=" + trackColour + ", name=" + name + "]";
 	}
 
-
+	/**
+	 * Determines if given station is the last of the line
+	 * @param s - station to check
+	 * @throws Exception - if station is not on the line
+	 */
 	public boolean endOfLine(Station s) throws Exception{
 		if(this.stations.contains(s)){
 			int index = this.stations.indexOf(s);
@@ -68,8 +93,12 @@ public class Line {
 		}
 	}
 
-	
-	
+	/**
+	 * Returns the next track along the line
+	 * @param currentStation - starting point
+	 * @param forward - direction of travel
+	 * @throws Exception - if station is not on line
+	 */
 	public Track nextTrack(Station currentStation, boolean forward) throws Exception {
 		if(this.stations.contains(currentStation)){
 			// Determine the track index
@@ -89,6 +118,12 @@ public class Line {
 		}
 	}
 	
+	/**
+	 * Returns next station along line
+	 * @param s - starting point
+	 * @param forward - direction of travel
+	 * @throws Exception - if station not on line
+	 */
 	public Station nextStation(Station s, boolean forward) throws Exception{
 		if(this.stations.contains(s)){
 			int curIndex = this.stations.lastIndexOf(s);
@@ -105,6 +140,10 @@ public class Line {
 		}
 	}
 	
+	/**
+	 * Render the line
+	 * @param renderer - renderer from libGDX
+	 */
 	public void render(ShapeRenderer renderer){
 		// Set the color to our line
 		renderer.setColor(trackColour);
@@ -116,5 +155,8 @@ public class Line {
 	}
 	
 	public ArrayList<Station> getStations() { return stations; }
-	
+	public ArrayList<Track> getTracks(){ return tracks; }
+	public Color getLineColour(){ return lineColour; }
+	public Color getTrackColour(){ return trackColour; }
+	public String getName(){ return name; }
 }
